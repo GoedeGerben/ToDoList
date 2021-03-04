@@ -1,1 +1,21 @@
-yo
+textarea {
+	overflow: hidden; 
+	overflow-wrap: break-word; 
+	resize: none;
+}
+
+button {
+	
+}
+
+.list {
+
+}
+
+.listName {
+
+}
+
+.taskName {
+
+}
