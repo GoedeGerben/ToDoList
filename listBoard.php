@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<title>ToDo List</title>
-</head>
-<body>
-	<?php
+<?php
+	include_once 'header.php';
+	
 
 	$list1 = "List one";
 	$task1 = "task one";
