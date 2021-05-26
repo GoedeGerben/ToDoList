@@ -1,9 +1,15 @@
 <?php
 	include_once 'header.php';
 	
+	$dbname = "todolist";
+	$servername = "localhost";
+	$username = "Gerard";
+	$password = "GerardGerard";
 
-	$list1 = "List one";
-	$task1 = "task one";
+	$list1 = "lists (name)";
+	$task1 = "tasks (name, description)";
+
+	$newListName = "testList"
 	?>
 	<header>ToDo list</header>
 
@@ -13,7 +19,7 @@
 			<input type="text" id="task1" name="task1" maxlength="25" value="<?php echo $task1 ?>">
 		</form>
 
-		<button>add button</button><!-- adds a task -->
+		<button onclick="<?php include_once 'listCreate.php'; ?>">add button</button><!-- adds a task -->
 		<button>remove button</button><!-- removes the list -->
 	</div>
 
