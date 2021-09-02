@@ -1,13 +1,24 @@
 <?php
 	include_once 'header.php';
 	
-	$dbname = "todolist";
-	$servername = "localhost";
-	$username = "Gerard";
-	$password = "GerardGerard";
+	
+	$host = 'localhost';
+	$user = 'Gerard';
+	$password = 'GerardGerard';
+	$dbname = 'todolist';
 
-	$list1 = "lists (name)";
-	$task1 = "tasks (name, description)";
+	$dsn = 'mysql:host='. $host .';dbname='. $dbname;
+
+	$pdo = new PDO($dsn, $user, $password);
+
+	$stmt = $pdo->query('SELECT * FROM lijsten');
+
+	while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+	echo $row['naam'] . '<br>';
+}
+
+	$list1 = "lijsten (naam)";
+	$task1 = "taken (naam, beschrijving, belangrijk)";
 
 	$newListName = "testList"
 	?>
