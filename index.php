@@ -10,7 +10,7 @@ $pdo = new PDO($dsn, $user, $password);
 $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);//zorgt ervoor dat je niks in de fetch() moet zetten
 
 
-//begin van alles op de pagina zetten
+//begin van alle lijsten + taken op de pagina zetten
 //selecteert alles uit 'lijsten' en zet het op de pagina
 $stmt = $pdo->query('SELECT * FROM lijsten');
 
@@ -29,4 +29,17 @@ while ($row = $stmt->fetch()) {
 	}
 	echo '<br>';
 }
+//eind van alle lijsten + taken op de pagina zetten
+
+//lijst toevoegen
+//lijst weizigen
+//lijst verwijderen
+
+//taak toevoegen
+//taak weizigen
+//taak verwijderen
+
+
+
+//include "dbconnection.php"; file aanmaken waar de db connectie in staat. 
 ?>
