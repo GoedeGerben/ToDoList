@@ -20,9 +20,9 @@ while ($row = $stmt->fetch()) {
 
 	//selecteert elke taak die bij de lijst hoort die momenteel door de loop gaat
 	$sql = 'SELECT * FROM taken WHERE lijstid = ?';
-	$stmt = $pdo->prepare($sql);
-	$stmt->execute([$lijstid]);
-	$taken = $stmt->fetchALL();
+	$tstmt = $pdo->prepare($sql);
+	$tstmt->execute([$lijstid]);
+	$taken = $tstmt->fetchALL();
 
 	foreach ($taken as $taken) {
 		echo $taken->naam . '<br>';
