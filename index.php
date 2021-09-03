@@ -51,6 +51,12 @@ id: <input type="number" name="id"><br>
 <input type="submit">
 </form>
 
+<form action="deleteList.php" method="post">
+<h2>verwijder een lijst</h2>
+id: <input type="number" name="id"><br>
+<input type="submit">
+</form>
+
 <form action="taskCreate.php" method="post">
 <h2>voeg een taak toe</h2>
 naam: <input type="text" name="naam"><br>
@@ -68,6 +74,13 @@ beschrijving: <input type="text" name="beschrijving"><br>
 id: <input type="number" name="id"><br>
 <input type="submit">
 </form>
+
+<form action="deleteTask.php" method="post">
+<h2>verwijder een taak</h2>
+id: <input type="number" name="id"><br>
+<input type="submit">
+</form>
+
 
 </body>
 </html>
