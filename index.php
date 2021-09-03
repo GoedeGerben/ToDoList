@@ -60,5 +60,14 @@ beschrijving: <input type="text" name="beschrijving"><br>
 <input type="submit">
 </form>
 
+<form action="updateTask.php" method="post">
+<h2>update een taak</h2>
+naam: <input type="text" name="naam"><br>
+belangtijk: <input type="text" name="belangrijk"><br>
+beschrijving: <input type="text" name="beschrijving"><br>
+id: <input type="number" name="id"><br>
+<input type="submit">
+</form>
+
 </body>
 </html>
