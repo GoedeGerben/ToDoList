@@ -1,14 +1,4 @@
 <?php
-/*$host = 'localhost';
-$user = 'Gerard';
-$password = 'GerardGerard';
-$dbname = 'todolist';
-
-$dsn = 'mysql:host='. $host .';dbname='. $dbname;
-
-$pdo = new PDO($dsn, $user, $password);
-$pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);//zorgt ervoor dat je niks in de fetch() moet zetten*/
-
 include_once 'connect.php';
 //begin van alle lijsten + taken op de pagina zetten
 //selecteert alles uit 'lijsten' en zet het op de pagina
@@ -47,7 +37,15 @@ while ($row = $stmt->fetch()) {
 <html>
 <body>
 
+<form action="listCreate.php" method="post">
+<h2>voeg een lijst toe</h2>
+naam: <input type="text" name="naam"><br>
+kleur: <input type="text" name="kleur"><br>
+<input type="submit">
+</form>
+
 <form action="taskCreate.php" method="post">
+<h2>voeg een taak toe</h2>
 naam: <input type="text" name="naam"><br>
 belangtijk: <input type="text" name="belangrijk"><br>
 lijst id: <input type="number" name="lijstid"><br>
