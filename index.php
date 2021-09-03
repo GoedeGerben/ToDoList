@@ -43,3 +43,17 @@ while ($row = $stmt->fetch()) {
 
 //include "dbconnection.php"; file aanmaken waar de db connectie in staat. 
 ?>
+
+<html>
+<body>
+
+<form action="listCreate.php" method="post">
+naam: <input type="text" name="naam"><br>
+belangtijk: <input type="text" name="belangrijk"><br>
+lijst id: <input type="number" name="lijstid"><br>
+beschrijving: <input type="text" name="beschrijving"><br>
+<input type="submit">
+</form>
+
+</body>
+</html>
