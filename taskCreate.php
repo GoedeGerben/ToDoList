@@ -6,18 +6,20 @@ try {
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 // prepare sql and bind parameters
-    $stmt = $pdo->prepare("INSERT INTO taken (naam, belangrijk, lijstid, beschrijving) 
-VALUES (:naam, :belangrijk, :lijstid, :beschrijving)");
-    $stmt->bindParam(':naam', $firstname);
-    $stmt->bindParam(':belangrijk', $lastname);
-    $stmt->bindParam(':lijstid', $email);
-    $stmt->bindParam(':beschrijving', $bemail);
+    $stmt = $pdo->prepare("INSERT INTO taken (naam, duur, status, lijstid, beschrijving) 
+VALUES (:naam, :duur, :status, :lijstid, :beschrijving)");
+    $stmt->bindParam(':naam', $naam);
+    $stmt->bindParam(':duur', $duur);
+    $stmt->bindParam(':status', $status);
+    $stmt->bindParam(':lijstid', $lijstid);
+    $stmt->bindParam(':beschrijving', $beschrijving);
 
 // insert a row
-    $firstname = $_POST["naam"];
-    $lastname = $_POST["belangrijk"];
-    $email = $_POST["lijstid"];
-    $bemail = $_POST["beschrijving"];
+    $naam = $_POST["naam"];
+    $duur = $_POST["duur"];
+    $status = $_POST["status"];
+    $lijstid = $_POST["lijstid"];
+    $beschrijving = $_POST["beschrijving"];
     $stmt->execute();
 
 

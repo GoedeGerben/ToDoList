@@ -60,7 +60,8 @@ id: <input type="number" name="id"><br>
 <form action="taskCreate.php" method="post">
 <h2>voeg een taak toe</h2>
 naam: <input type="text" name="naam"><br>
-belangtijk: <input type="text" name="belangrijk"><br>
+duur: <input type="text" name="duur"><br>
+status: <input type="text" name="status"><br>
 lijst id: <input type="number" name="lijstid"><br>
 beschrijving: <input type="text" name="beschrijving"><br>
 <input type="submit">
@@ -69,7 +70,8 @@ beschrijving: <input type="text" name="beschrijving"><br>
 <form action="updateTask.php" method="post">
 <h2>update een taak</h2>
 naam: <input type="text" name="naam"><br>
-belangtijk: <input type="text" name="belangrijk"><br>
+duur: <input type="text" name="duur"><br>
+status: <input type="text" name="status"><br>
 beschrijving: <input type="text" name="beschrijving"><br>
 id: <input type="number" name="id"><br>
 <input type="submit">
