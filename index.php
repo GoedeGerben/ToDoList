@@ -44,6 +44,13 @@ kleur: <input type="text" name="kleur"><br>
 <input type="submit">
 </form>
 
+<form action="updateList.php" method="post">
+<h2>Update een lijst</h2>
+naam: <input type="text" name="naam"><br>
+id: <input type="number" name="id"><br>
+<input type="submit">
+</form>
+
 <form action="taskCreate.php" method="post">
 <h2>voeg een taak toe</h2>
 naam: <input type="text" name="naam"><br>
