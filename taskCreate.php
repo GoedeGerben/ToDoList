@@ -1,17 +1,12 @@
 <?php
-$servername = "localhost";
-$username = "Gerard";
-$password = "GerardGerard";
-$dbname = "todolist";
-
 try {
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username,
-        $password);
+	include_once 'connect.php';
+    
 // set the PDO error mode to exception
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 // prepare sql and bind parameters
-    $stmt = $conn->prepare("INSERT INTO taken (naam, belangrijk, lijstid, beschrijving) 
+    $stmt = $pdo->prepare("INSERT INTO taken (naam, belangrijk, lijstid, beschrijving) 
 VALUES (:naam, :belangrijk, :lijstid, :beschrijving)");
     $stmt->bindParam(':naam', $firstname);
     $stmt->bindParam(':belangrijk', $lastname);
