@@ -23,7 +23,7 @@ VALUES (:naam, :duur, :status, :lijstid, :beschrijving)");
     $stmt->execute();
 
 
-    echo "New records created successfully";
+    header("Location: index.php");
 }
 catch(PDOException $e)
 {

@@ -10,7 +10,7 @@ try {
 	$stmt = $pdo->prepare($sql);
 	$stmt->execute(['id' => $id]);
 
-    echo "taak verwijderd";
+    header("Location: index.php");
 }
 catch(PDOException $e)
 {

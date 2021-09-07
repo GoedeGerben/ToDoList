@@ -16,7 +16,7 @@ VALUES (:naam, :kleur)");
     $kleur = $_POST["kleur"];
     $stmt->execute();
 
-    echo "New records created successfully";
+    header("Location: index.php");
 }
 catch(PDOException $e)
 {

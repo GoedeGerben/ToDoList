@@ -6,7 +6,7 @@ $stmt = $pdo->query('SELECT * FROM lijsten');
 
 while ($row = $stmt->fetch()) {
 	$lijstid = $row->id;
-	echo $row->naam . '<br>';
+	echo '<h3>' . $row->naam . '</h3>';
 
 	//selecteert elke taak die bij de lijst hoort die momenteel door de loop gaat
 	$sql = 'SELECT * FROM taken WHERE lijstid = ?';
@@ -15,74 +15,89 @@ while ($row = $stmt->fetch()) {
 	$taken = $tstmt->fetchALL();
 
 	foreach ($taken as $taken) {
-		echo $taken->naam . '<br>';
+		echo '<p class = ' . $taken->duur .'>' . $taken->naam . '</p>';
 	}
 	echo '<br>';
 }
 //eind van alle lijsten + taken op de pagina zetten
-
-//lijst toevoegen
-//lijst weizigen
-//lijst verwijderen
-
-//taak toevoegen
-//taak weizigen
-//taak verwijderen
-
-
-
-//include "dbconnection.php"; file aanmaken waar de db connectie in staat. 
 ?>
 
 <html>
-<body>
+	<head>
+	    <title>Todo list</title>
+	<!--title werkt niet en voor styling moet w3.css gebruikt worden-->
+</head>
+	<body>
 
-<form action="listCreate.php" method="post">
-<h2>voeg een lijst toe</h2>
-naam: <input type="text" name="naam"><br>
-kleur: <input type="text" name="kleur"><br>
-<input type="submit">
-</form>
+		<p>sorteer op status</p>
+		<p>sorteer op duur</p>
 
-<form action="updateList.php" method="post">
-<h2>Update een lijst</h2>
-naam: <input type="text" name="naam"><br>
-id: <input type="number" name="id"><br>
-<input type="submit">
-</form>
+		<form action="listCreate.php" method="post">
+			<h2>voeg een lijst toe</h2>
+			naam: <input type="text" name="naam"><br>
+			kleur: <input type="text" name="kleur"><br>
+			<input type="submit">
+		</form>
 
-<form action="deleteList.php" method="post">
-<h2>verwijder een lijst</h2>
-id: <input type="number" name="id"><br>
-<input type="submit">
-</form>
+		<form action="updateList.php" method="post">
+			<h2>Update een lijst</h2>
+			naam: <input type="text" name="naam"><br>
+			id: <input type="number" name="id"><br>
+			<input type="submit">
+		</form>
 
-<form action="taskCreate.php" method="post">
-<h2>voeg een taak toe</h2>
-naam: <input type="text" name="naam"><br>
-duur: <input type="text" name="duur"><br>
-status: <input type="text" name="status"><br>
-lijst id: <input type="number" name="lijstid"><br>
-beschrijving: <input type="text" name="beschrijving"><br>
-<input type="submit">
-</form>
+		<form action="deleteList.php" method="post">
+			<h2>verwijder een lijst</h2>
+			id: <input type="number" name="id"><br>
+			<input type="submit">
+		</form>
 
-<form action="updateTask.php" method="post">
-<h2>update een taak</h2>
-naam: <input type="text" name="naam"><br>
-duur: <input type="text" name="duur"><br>
-status: <input type="text" name="status"><br>
-beschrijving: <input type="text" name="beschrijving"><br>
-id: <input type="number" name="id"><br>
-<input type="submit">
-</form>
+		<form action="taskCreate.php" method="post">
+			<h2>voeg een taak toe</h2>
+			naam: <input type="text" name="naam"><br>
+			duur: <input type="text" name="duur"><br>
+			status: <input type="text" name="status"><br>
+			lijst id: <input type="number" name="lijstid"><br>
+			beschrijving: <input type="text" name="beschrijving"><br>
+			<input type="submit">
+		</form>
 
-<form action="deleteTask.php" method="post">
-<h2>verwijder een taak</h2>
-id: <input type="number" name="id"><br>
-<input type="submit">
-</form>
+		<form action="updateTask.php" method="post">
+			<h2>update een taak</h2>
+			naam: <input type="text" name="naam"><br>
+			duur: <input type="text" name="duur"><br>
+			status: <input type="text" name="status"><br>
+			beschrijving: <input type="text" name="beschrijving"><br>
+			id: <input type="number" name="id"><br>
+			<input type="submit">
+		</form>
+
+		<form action="deleteTask.php" method="post">
+			<h2>verwijder een taak</h2>
+			id: <input type="number" name="id"><br>
+			<input type="submit">
+		</form>
 
 
-</body>
+	</body>
 </html>
+
+<!--
+alle lijsten naast elkaar zetten met de taken er onder. 2 sorteer knoppen bij de lijst. 1 met 'sorteer op status' en een ander met 'sorteer op duur'
+
+met een druk op een knop naast elke taak / lijst komt een form tevoorschijn.
+
+code bestanden beter verdelen in verschillende mapjes.
+
+//status - knop in de forms waar men tussen 1 en 5 kan kiezen
+1 moet beginnen
+2 begonnen
+3 halverwegen
+4 bijna klaar
+5 klaar
+
+duur is tijd in minuten
+
+
+
+ -->

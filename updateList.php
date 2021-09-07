@@ -11,7 +11,7 @@ try {
 	$stmt = $pdo->prepare($sql);
 	$stmt->execute(['naam' => $naam, 'id' => $id]);
 
-    echo "New records created successfully";
+    header("Location: index.php");
 }
 catch(PDOException $e)
 {
