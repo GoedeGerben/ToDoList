@@ -5,3 +5,23 @@
 h2 {
 	
 }
+
+.status1{
+	background-color: green;
+}
+
+.status2{
+	background-color: blue;
+}
+
+.status3{
+	background-color: yellow;
+}
+
+.status4{
+	background-color: orange;
+}
+
+.status5{
+	background-color: red;
+}

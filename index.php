@@ -4,18 +4,35 @@ include_once 'connect.php';
 //selecteert alles uit 'lijsten' en zet het op de pagina
 $stmt = $pdo->query('SELECT * FROM lijsten');
 
+	if ($_GET['order'] == 'DESC') {
+		$order = 'DESC';
+		$orderButton = 'ASC';
+	} else {
+		$order = 'ASC';
+		$orderButton = 'DESC';
+	}
+	
+	if ($_GET['orderType'] == 'duur') {
+		$orderType = 'duur';
+		$orderTypeButton = 'status';
+	} else {
+		$orderType = 'status';
+		$orderTypeButton = 'duur';
+	}
+
 while ($row = $stmt->fetch()) {
 	$lijstid = $row->id;
 	echo '<h3>' . $row->naam . '</h3>';
 
 	//selecteert elke taak die bij de lijst hoort die momenteel door de loop gaat
-	$sql = 'SELECT * FROM taken WHERE lijstid = ?';
+
+	$sql = 'SELECT * FROM taken WHERE lijstid = ? ORDER BY ' . $orderType . ' ' . $order;
 	$tstmt = $pdo->prepare($sql);
 	$tstmt->execute([$lijstid]);
 	$taken = $tstmt->fetchALL();
 
 	foreach ($taken as $taken) {
-		echo '<p class = ' . $taken->duur .'>' . $taken->naam . '</p>';
+		echo '<p class = status' . $taken->status .'>' . $taken->naam . '</p>';
 	}
 	echo '<br>';
 }
@@ -25,12 +42,21 @@ while ($row = $stmt->fetch()) {
 <html>
 	<head>
 	    <title>Todo list</title>
+	    <link rel="stylesheet" type="text/css" href="style/style.css">
 	<!--title werkt niet en voor styling moet w3.css gebruikt worden-->
 </head>
 	<body>
-
-		<p>sorteer op status</p>
-		<p>sorteer op duur</p>
+		<a href="index.php?order=<?php
+		echo $orderButton;
+		?>">sorteer op <?php
+		echo $orderButton;
+		?></a>
+		<br>
+		<a href="index.php?orderType=<?php
+		echo $orderTypeButton;
+		?>">sorteer op <?php
+		echo $orderTypeButton;
+		?></a>
 
 		<form action="listCreate.php" method="post">
 			<h2>voeg een lijst toe</h2>
