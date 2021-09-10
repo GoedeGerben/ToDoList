@@ -3,20 +3,21 @@ include_once 'header.php';
 include_once 'connect.php';
 
 if ($_GET['order'] == 'DESC') {
-		$order = 'DESC';
-		$orderButton = 'ASC';
-	} else {
-		$order = 'ASC';
-		$orderButton = 'DESC';
-	}
+	$order = 'DESC';
+	$orderButton = 'ASC';
+} else {
+	$order = 'ASC';
+	$orderButton = 'DESC';
+}
 	
-	if ($_GET['orderType'] == 'duur') {
-		$orderType = 'duur';
-		$orderTypeButton = 'status';
-	} else {
-		$orderType = 'status';
-		$orderTypeButton = 'duur';
-	}
+if ($_GET['orderType'] == 'duur') {
+	$orderType = 'duur';
+	$orderTypeButton = 'status';
+} else {
+	$orderType = 'status';
+	$orderTypeButton = 'duur';
+}
+
 //begin van alle lijsten + taken op de pagina zetten
 //selecteert alles uit 'lijsten' en zet het op de pagina
 $stmt = $pdo->query('SELECT * FROM lijsten');
@@ -41,13 +42,13 @@ echo '</div';
 ?>
 	<body>
 		<a href="index.php?order=<?php
-		echo $orderButton;
+		echo $orderButton . '&orderType=' . $orderType;
 		?>">sorteer op <?php
 		echo $orderButton;
 		?></a>
 		<br>
 		<a href="index.php?orderType=<?php
-		echo $orderTypeButton;
+		echo $orderTypeButton . '&order=' . $order;
 		?>">sorteer op <?php
 		echo $orderTypeButton;
 		?></a>
@@ -104,7 +105,9 @@ echo '</div';
 </html>
 
 <!--
-alle lijsten naast elkaar zetten met de taken er onder. 2 sorteer knoppen bij de lijst. 1 met 'sorteer op status' en een ander met 'sorteer op duur'
-
 met een druk op een knop naast elke taak / lijst komt een form tevoorschijn.
+
+taken van lijst verwijderen
+
+op taak / lijst klikken om aan te passen.
  -->
