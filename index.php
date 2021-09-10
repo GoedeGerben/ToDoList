@@ -1,3 +1,9 @@
+<html>
+	<head>
+	    <title>Todo list</title>
+	    <link rel="stylesheet" type="text/css" href="style/style.css">
+	    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	</head>
 <?php
 include_once 'connect.php';
 
@@ -19,10 +25,10 @@ if ($_GET['order'] == 'DESC') {
 //begin van alle lijsten + taken op de pagina zetten
 //selecteert alles uit 'lijsten' en zet het op de pagina
 $stmt = $pdo->query('SELECT * FROM lijsten');
-
+echo '<div class="w3-row">';
 while ($row = $stmt->fetch()) {
 	$lijstid = $row->id;
-	echo '<h3>' . $row->naam . '</h3>';
+	echo '<div class="w3-col s2">' . $row->naam;
 
 	//selecteert elke taak die bij de lijst hoort die momenteel door de loop gaat
 	$sql = 'SELECT * FROM taken WHERE lijstid = ? ORDER BY ' . $orderType . ' ' . $order;
@@ -31,19 +37,13 @@ while ($row = $stmt->fetch()) {
 	$taken = $tstmt->fetchALL();
 
 	foreach ($taken as $taken) {
-		echo '<p class = status' . $taken->status .'>' . $taken->naam . '</p>';
+		echo '<div class="status' . $taken->status .'">' . $taken->naam . '</div>';
 	}
-	echo '<br>';
+	echo "</div>";
 }
+echo '</div';
 //eind van alle lijsten + taken op de pagina zetten
 ?>
-
-<html>
-	<head>
-	    <title>Todo list</title>
-	    <link rel="stylesheet" type="text/css" href="style/style.css">
-	<!--title werkt niet en voor styling moet w3.css gebruikt worden-->
-</head>
 	<body>
 		<a href="index.php?order=<?php
 		echo $orderButton;
