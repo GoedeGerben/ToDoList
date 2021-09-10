@@ -1,6 +1,6 @@
 <?php
 try {
-	include_once 'connect.php';
+	include_once '../connect.php';
 
 	$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -14,7 +14,7 @@ try {
 	$stmt = $pdo->prepare($sql);
 	$stmt->execute(['naam' => $naam, 'duur' => $duur, 'status' => $status, 'beschrijving' => $beschrijving, 'id' => $id]);
 
-    header("Location: index.php");
+    header("Location: ../index.php");
 }
 catch(PDOException $e)
 {

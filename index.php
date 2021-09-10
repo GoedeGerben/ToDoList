@@ -53,28 +53,28 @@ echo '</div';
 		?></a>
 
 		<div class="w3-row">
-			<form action="listCreate.php" method="post" class="w3-col s3">
+			<form action="list/listCreate.php" method="post" class="w3-col s3">
 				<h2>voeg een lijst toe</h2>
 				naam: <input type="text" name="naam"><br>
 				kleur: <input type="text" name="kleur"><br>
 				<input type="submit">
 			</form>
 
-			<form action="updateList.php" method="post" class="w3-col s3">
+			<form action="list/updateList.php" method="post" class="w3-col s3">
 				<h2>Update een lijst</h2>
 				naam: <input type="text" name="naam"><br>
 				id: <input type="number" min="1" name="id"><br>
 				<input type="submit">
 			</form>
 
-			<form action="deleteList.php" method="post" class="w3-col s3">
+			<form action="list/deleteList.php" method="post" class="w3-col s3">
 				<h2>verwijder een lijst</h2>
 				id: <input type="number" min="1" name="id"><br>
 				<input type="submit">
 			</form>
 		</div>
 		<div class="w3-row">
-			<form action="taskCreate.php" method="post" class="w3-col s3">
+			<form action="task/taskCreate.php" method="post" class="w3-col s3">
 				<h2>voeg een taak toe</h2>
 				naam: <input type="text" name="naam"><br>
 				duur: <input type="number" min="1" name="duur"><br>
@@ -84,7 +84,7 @@ echo '</div';
 				<input type="submit">
 			</form>
 
-			<form action="updateTask.php" method="post" class="w3-col s3">
+			<form action="task/updateTask.php" method="post" class="w3-col s3">
 				<h2>update een taak</h2>
 				naam: <input type="text" name="naam"><br>
 				duur: <input type="number" min="1" name="duur"><br>
@@ -94,7 +94,7 @@ echo '</div';
 				<input type="submit">
 			</form>
 
-			<form action="deleteTask.php" method="post" class="w3-col s3">
+			<form action="task/deleteTask.php" method="post" class="w3-col s3">
 				<h2>verwijder een taak</h2>
 				id: <input type="number" name="id"><br>
 				<input type="submit">

@@ -1,6 +1,6 @@
 <?php
 try {
-	include_once 'connect.php';
+	include_once '../connect.php';
     
 // set the PDO error mode to exception
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -16,7 +16,7 @@ VALUES (:naam, :kleur)");
     $kleur = $_POST["kleur"];
     $stmt->execute();
 
-    header("Location: index.php");
+    header("Location: ../index.php");
 }
 catch(PDOException $e)
 {
