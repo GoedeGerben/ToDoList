@@ -1,10 +1,5 @@
-<html>
-	<head>
-	    <title>Todo list</title>
-	    <link rel="stylesheet" type="text/css" href="style/style.css">
-	    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-	</head>
 <?php
+include_once 'header.php';
 include_once 'connect.php';
 
 if ($_GET['order'] == 'DESC') {
@@ -28,7 +23,7 @@ $stmt = $pdo->query('SELECT * FROM lijsten');
 echo '<div class="w3-row">';
 while ($row = $stmt->fetch()) {
 	$lijstid = $row->id;
-	echo '<div class="w3-col s2">' . $row->naam;
+	echo '<div style="border:3px solid" class="w3-col s2 w3-border-black">' . $row->naam;
 
 	//selecteert elke taak die bij de lijst hoort die momenteel door de loop gaat
 	$sql = 'SELECT * FROM taken WHERE lijstid = ? ORDER BY ' . $orderType . ' ' . $order;
@@ -57,51 +52,54 @@ echo '</div';
 		echo $orderTypeButton;
 		?></a>
 
-		<form action="listCreate.php" method="post">
-			<h2>voeg een lijst toe</h2>
-			naam: <input type="text" name="naam"><br>
-			kleur: <input type="text" name="kleur"><br>
-			<input type="submit">
-		</form>
+		<div class="w3-row">
+			<form action="listCreate.php" method="post" class="w3-col s3">
+				<h2>voeg een lijst toe</h2>
+				naam: <input type="text" name="naam"><br>
+				kleur: <input type="text" name="kleur"><br>
+				<input type="submit">
+			</form>
 
-		<form action="updateList.php" method="post">
-			<h2>Update een lijst</h2>
-			naam: <input type="text" name="naam"><br>
-			id: <input type="number" min="1" name="id"><br>
-			<input type="submit">
-		</form>
+			<form action="updateList.php" method="post" class="w3-col s3">
+				<h2>Update een lijst</h2>
+				naam: <input type="text" name="naam"><br>
+				id: <input type="number" min="1" name="id"><br>
+				<input type="submit">
+			</form>
 
-		<form action="deleteList.php" method="post">
-			<h2>verwijder een lijst</h2>
-			id: <input type="number" min="1" name="id"><br>
-			<input type="submit">
-		</form>
+			<form action="deleteList.php" method="post" class="w3-col s3">
+				<h2>verwijder een lijst</h2>
+				id: <input type="number" min="1" name="id"><br>
+				<input type="submit">
+			</form>
+		</div>
+		<div class="w3-row">
+			<form action="taskCreate.php" method="post" class="w3-col s3">
+				<h2>voeg een taak toe</h2>
+				naam: <input type="text" name="naam"><br>
+				duur: <input type="number" min="1" name="duur"><br>
+				status: <input type="number" min="1" max="5" name="status"><br>
+				lijst id: <input type="number" name="lijstid"><br>
+				beschrijving: <input type="text" name="beschrijving"><br>
+				<input type="submit">
+			</form>
 
-		<form action="taskCreate.php" method="post">
-			<h2>voeg een taak toe</h2>
-			naam: <input type="text" name="naam"><br>
-			duur: <input type="number" min="1" name="duur"><br>
-			status: <input type="number" min="1" max="5" name="status"><br>
-			lijst id: <input type="number" name="lijstid"><br>
-			beschrijving: <input type="text" name="beschrijving"><br>
-			<input type="submit">
-		</form>
+			<form action="updateTask.php" method="post" class="w3-col s3">
+				<h2>update een taak</h2>
+				naam: <input type="text" name="naam"><br>
+				duur: <input type="number" min="1" name="duur"><br>
+				status: <input type="number" min="1" max="5" name="status"><br>
+				beschrijving: <input type="text" name="beschrijving"><br>
+				id: <input type="number" name="id"><br>
+				<input type="submit">
+			</form>
 
-		<form action="updateTask.php" method="post">
-			<h2>update een taak</h2>
-			naam: <input type="text" name="naam"><br>
-			duur: <input type="number" min="1" name="duur"><br>
-			status: <input type="number" min="1" max="5" name="status"><br>
-			beschrijving: <input type="text" name="beschrijving"><br>
-			id: <input type="number" name="id"><br>
-			<input type="submit">
-		</form>
-
-		<form action="deleteTask.php" method="post">
-			<h2>verwijder een taak</h2>
-			id: <input type="number" name="id"><br>
-			<input type="submit">
-		</form>
+			<form action="deleteTask.php" method="post" class="w3-col s3">
+				<h2>verwijder een taak</h2>
+				id: <input type="number" name="id"><br>
+				<input type="submit">
+			</form>
+		</div>
 	</body>
 </html>
 
