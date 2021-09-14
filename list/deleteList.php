@@ -6,7 +6,7 @@ try {
 
     $id = $_POST["id"];
 
-	$sql = 'DELETE FROM lijsten WHERE id = :id';
+	$sql = 'DELETE FROM lijsten WHERE id = :id; DELETE FROM taken WHERE lijstid = :id';
 	$stmt = $pdo->prepare($sql);
 	$stmt->execute(['id' => $id]);
 
