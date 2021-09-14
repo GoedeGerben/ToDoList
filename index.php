@@ -24,7 +24,7 @@ $stmt = $pdo->query('SELECT * FROM lijsten');
 echo '<div class="w3-row">';
 while ($row = $stmt->fetch()) {
 	$lijstid = $row->id;
-	echo '<div onclick=document.getElementById("id01").style.display="block" style="border:3px solid" class="w3-col s2 w3-border-black">' . $row->naam;
+	echo '<div onclick=show(' . $row->id . ') style="border:3px solid" class="w3-col s2 w3-border-black">' . $row->naam;
 
 	//selecteert elke taak die bij de lijst hoort die momenteel door de loop gaat
 	$sql = 'SELECT * FROM taken WHERE lijstid = ? ORDER BY ' . $orderType . ' ' . $order;
@@ -108,7 +108,7 @@ echo '</div';
 		   <h1>Update de lijst</h1>
 		   <form action="list/updateList.php" method="post" class="w3-col s3">
 				naam: <input type="text" name="naam"><br>
-				id: <input type="number" min="1" name="id"><br>
+				<input id="updateList" type="hidden" name = "id" />
 				<input type="submit">
 			</form>
 		  </div>
@@ -116,7 +116,7 @@ echo '</div';
 		  <div id="delete" class="w3-container city">
 		   <h1>verwijder de lijst</h1>
 		   <form action="list/deleteList.php" method="post" class="w3-col s3">
-				id: <input type="number" min="1" name="id"><br>
+				<input id="deleteList" type="hidden" name = "id" /><br>
 				<input type="submit">
 			</form>
 		  </div>
@@ -142,6 +142,15 @@ echo '</div';
 		  }
 		  document.getElementById(cityName).style.display = "block";
 		  evt.currentTarget.classList.add("w3-light-grey");
+		}
+
+		var currentId = 0;
+
+		function show(id) {
+			document.getElementById("id01").style.display="block";
+			document.getElementById("updateList").value=id;
+			document.getElementById("deleteList").value=id;
+			currentId = id;
 		}
 		</script>
 	</body>
