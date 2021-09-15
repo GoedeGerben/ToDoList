@@ -19,3 +19,11 @@
 }
 
 .city {display:none}
+
+.description {
+	display: none;
+}
+
+.tasks:hover + .description{
+	display: block;
+}
