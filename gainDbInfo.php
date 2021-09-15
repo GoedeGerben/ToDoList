@@ -31,12 +31,15 @@ while ($row = $stmt->fetch()) {
 	$tstmt->execute([$lijstid]);
 	$taken = $tstmt->fetchALL();
 
-	foreach ($taken as $taken) {
-		echo '<div onclick=showTask(' . $taken->id . ') class="tasks status' . $taken->status .'">' . $taken->naam . '</div><div class="description">Deze taak duurt ' . $taken->duur . ' minuten. ' . $taken->beschrijving . '</div>';
+	if ($_GET['status'] >= 1) {
+		foreach ($taken as $taken) if ($_GET['status'] == $taken->status) {
+			echo '<div onclick=showTask(' . $taken->id . ') class="tasks status' . $taken->status .'">' . $taken->naam . '</div><div class="description">Deze taak duurt ' . $taken->duur . ' minuten. ' . $taken->beschrijving . '</div>';
+		}
+	}else {
+		foreach ($taken as $taken) {
+			echo '<div onclick=showTask(' . $taken->id . ') class="tasks status' . $taken->status .'">' . $taken->naam . '</div><div class="description">Deze taak duurt ' . $taken->duur . ' minuten. ' . $taken->beschrijving . '</div>';
+		}
 	}
-	echo '<div onclick=createTask(' . $row->id . ')>Voeg een taak toe</div>';
-	echo "</div>";
+	echo '<div onclick=createTask(' . $row->id . ')>Voeg een taak toe</div></div>';
 }
-echo '<div onclick=createList()>Voeg een lijst toe</div>';
-echo '</div';
-//eind van alle lijsten + taken op de pagina zetten
+echo '<div onclick=createList()>Voeg een lijst toe</div></div>';
