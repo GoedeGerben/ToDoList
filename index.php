@@ -39,8 +39,8 @@ include_once 'gainDbInfo.php'
 	  <div id="Add" class="w3-container city">
 	   <h1>voeg een lijst toe</h1>
 	  <form action="list/listCreate.php" method="post" class="w3-col s3">
-			naam: <input type="text" min="1" max="25" name="naam"><br>
-			kleur: <input type="text" min="1" max="25" name="kleur"><br>
+			naam: <input type="text" min="1" maxLength="25" name="naam" required><br>
+			kleur: <input type="text" min="1" max="25" name="kleur" required><br>
 			<input type="submit">
 		</form>
 	  </div>
@@ -48,7 +48,7 @@ include_once 'gainDbInfo.php'
 	  <div id="update" class="w3-container city">
 	   <h1>Update de lijst</h1>
 	   <form action="list/updateList.php" method="post" class="w3-col s3">
-			naam: <input type="text" min="1" max="25" name="naam"><br>
+			naam: <input type="text" min="1" maxLength="25" name="naam" required required><br>
 			<input id="updateList" type="hidden" name = "id" />
 			<input type="submit">
 		</form>
@@ -86,11 +86,11 @@ include_once 'gainDbInfo.php'
 	  <div id="addTask" class="w3-container city">
 	   <h1>voeg een taak toe</h1>
 	  <form action="task/taskCreate.php" method="post" class="w3-col s3">
-			naam: <input type="text" min="1" maxLength="25" name="naam"><br>
-			duur: <input type="number" min="1" maxLength="25" name="duur"><br>
-			status: <input type="number" min="1" max="5" name="status"><br>
+			naam: <input type="text" min="1" maxLength="25" name="naam" required><br>
+			duur: <input type="number" min="1" max="9999" name="duur" required><br>
+			status: <input type="number" min="1" max="5" name="status" required><br>
 			<input id="addTaskInput" type="hidden" name = "lijstid" />
-			beschrijving: <input type="text" min="1" name="beschrijving"><br>
+			beschrijving: <input type="text" min="1" name="beschrijving" required><br>
 			<input type="submit">
 		</form>
 	  </div>
@@ -98,10 +98,10 @@ include_once 'gainDbInfo.php'
 	  <div id="updateTask" class="w3-container city">
 	   <h1>Update de taak</h1>
 	   <form action="task/updateTask.php" method="post" class="w3-col s3">
-			naam: <input type="text" min="1" maxLength="25" name="naam"><br>
-			duur: <input type="number" min="1" maxLength="25" name="duur"><br>
-			status: <input type="number" min="1" max="5" name="status"><br>
-			beschrijving: <input type="text" min="1" name="beschrijving"><br>
+			naam: <input type="text" min="1" maxLength="25" name="naam" required><br>
+			duur: <input type="number" min="1" max="9999" name="duur" required><br>
+			status: <input type="number" min="1" max="5" name="status" required><br>
+			beschrijving: <input type="text" min="1" name="beschrijving" required><br>
 			<input id="updateTaskInput" type="hidden" name = "id" /><br>
 			<input type="submit">
 		</form>
@@ -126,6 +126,4 @@ include_once 'gainDbInfo.php'
 
 	<!--
 	php functions gebruiken
-	laat testen
-	filteren
 	-->
