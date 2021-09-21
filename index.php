@@ -27,7 +27,7 @@ include_once 'gainDbInfo.php'
 	  <header class="w3-container w3-blue"> 
 	   <span onclick="document.getElementById('id01').style.display='none'" 
 	   class="w3-button w3-blue w3-xlarge w3-display-topright">&times;</span>
-	   <h2>Header</h2>
+	   <h2 id="ListHeader">Header</h2>
 	  </header>
 
 	  <div class="w3-bar w3-border-bottom">
@@ -74,7 +74,7 @@ include_once 'gainDbInfo.php'
 	  <header class="w3-container w3-blue"> 
 	   <span onclick="document.getElementById('id02').style.display='none'" 
 	   class="w3-button w3-blue w3-xlarge w3-display-topright">&times;</span>
-	   <h2>Header</h2>
+	   <h2 id="TaskHeader">Header</h2>
 	  </header>
 
 	  <div class="w3-bar w3-border-bottom">
@@ -126,4 +126,5 @@ include_once 'gainDbInfo.php'
 
 	<!--
 	php functions gebruiken
+  Getest door John Spruit
 	-->

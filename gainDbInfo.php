@@ -23,7 +23,7 @@ $stmt = $pdo->query('SELECT * FROM lijsten');
 echo '<div class="w3-row">';
 while ($row = $stmt->fetch()) {
 	$lijstid = $row->id;
-	echo '<div style="border:3px solid" class="w3-col s2 w3-border-black"><div onclick=show(' . $row->id . ')>' . $row->naam . '</div>';
+	echo '<div style="border:3px solid" class="w3-col s2 w3-border-black"><div id="lijst' . $row->id . '" onclick=show(' . $row->id . ')>' . $row->naam . '</div>';
 
 	//selecteert elke taak die bij de lijst hoort die momenteel door de loop gaat
 	$sql = 'SELECT * FROM taken WHERE lijstid = ? ORDER BY ' . $orderType . ' ' . $order;
@@ -33,11 +33,11 @@ while ($row = $stmt->fetch()) {
 
 	if ($_GET['status'] >= 1) {
 		foreach ($taken as $taken) if ($_GET['status'] == $taken->status) {
-			echo '<div onclick=showTask(' . $taken->id . ') class="tasks status' . $taken->status .'">' . $taken->naam . '</div><div class="description">Deze taak duurt ' . $taken->duur . ' minuten. ' . $taken->beschrijving . '</div>';
+			echo '<div onclick=showTask(' . $taken->id . ') id="' . $taken->id . '" class="tasks status' . $taken->status .'">' . $taken->naam . '</div><div class="description">Deze taak duurt ' . $taken->duur . ' minuten. ' . $taken->beschrijving . '</div>';
 		}
 	}else {
 		foreach ($taken as $taken) {
-			echo '<div onclick=showTask(' . $taken->id . ') class="tasks status' . $taken->status .'">' . $taken->naam . '</div><div class="description">Deze taak duurt ' . $taken->duur . ' minuten. ' . $taken->beschrijving . '</div>';
+			echo '<div onclick=showTask(' . $taken->id . ') id="' . $taken->id . '" class="tasks status' . $taken->status .'">' . $taken->naam . '</div><div class="description">Deze taak duurt ' . $taken->duur . ' minuten. ' . $taken->beschrijving . '</div>';
 		}
 	}
 	echo '<div onclick=createTask(' . $row->id . ')>Voeg een taak toe</div></div>';

@@ -24,6 +24,7 @@ function show(id) {
 	noDisplay4u();
 	document.getElementById("updateListButton").style.display="block";
 	document.getElementById("deleteListButton").style.display="block";
+	document.getElementById("ListHeader").innerHTML= document.getElementById('lijst'+id).innerHTML;
 }
 
 function showTask(id) {
@@ -34,6 +35,7 @@ function showTask(id) {
 	noDisplay4u();
 	document.getElementById("updateTaskButton").style.display="block";
 	document.getElementById("deleteTaskButton").style.display="block";
+	document.getElementById("TaskHeader").innerHTML= document.getElementById(id).innerHTML;
 }
 
 function createTask(lijstid) {
